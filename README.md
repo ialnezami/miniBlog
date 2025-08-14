@@ -1,52 +1,66 @@
-# Blog Minimaliste
+# MiniBlog - Blog Minimaliste avec Intégration IA
 
-Un blog moderne et épuré développé avec Vue.js pour le frontend et Django pour le backend, utilisant MySQL comme base de données.
+Un blog moderne et épuré développé avec Vue.js pour le frontend et Django pour le backend, utilisant MySQL comme base de données et intégrant l'intelligence artificielle pour vérifier et améliorer le contenu des articles.
 
 ## 🚀 Fonctionnalités
 
 ### Fonctionnalités Core
 
-- **Gestion d’articles** : Création, édition, suppression et publication d’articles
+- **Gestion d'articles** : Création, édition, suppression et publication d'articles
 - **Interface minimaliste** : Design épuré et responsive pour une expérience de lecture optimale
-- **Système d’authentification** : Connexion/déconnexion des auteurs
+- **Système d'authentification** : Connexion/déconnexion des auteurs avec JWT
 - **Gestion des catégories** : Organisation des articles par catégories
-- **Recherche** : Recherche textuelle dans les articles
-- **Pagination** : Navigation fluide entre les pages d’articles
+- **Recherche avancée** : Recherche textuelle dans les articles avec filtres
+- **Pagination** : Navigation fluide entre les pages d'articles
 - **Prévisualisation** : Aperçu des articles avant publication
+
+### 🧠 Intégration IA (Nouveau !)
+
+- **Vérification automatique du contenu** : Analyse de la qualité avec OpenAI GPT
+- **Score de qualité** : Évaluation sur 10 avec feedback détaillé
+- **Détection de contenu inapproprié** : Modération automatique du contenu
+- **Suggestions d'amélioration** : Conseils personnalisés pour améliorer vos articles
+- **Analyse SEO** : Recommandations pour optimiser vos articles
+- **Vérification grammaticale** : Détection des erreurs de langue
 
 ### Fonctionnalités Avancées
 
 - **Éditeur Markdown** : Rédaction des articles en Markdown avec prévisualisation en temps réel
 - **Système de tags** : Classification fine des articles
-- **SEO optimisé** : Meta tags automatiques, URLs propres, sitemap
+- **SEO optimisé** : Meta tags automatiques, URLs propres
 - **Mode brouillon** : Sauvegarde automatique des articles en cours de rédaction
-- **Gestion d’images** : Upload et intégration d’images dans les articles
-- **RSS Feed** : Flux RSS pour les abonnés
+- **Gestion d'images** : Upload et intégration d'images dans les articles
+- **Commentaires** : Système de commentaires modéré
 - **Mode sombre/clair** : Basculement entre les thèmes
-- **Commentaires** (optionnel) : Système de commentaires modéré
 
 ## 🛠 Stack Technologique
 
 ### Frontend - Vue.js 3
 
-- **Vue 3** : Framework JavaScript réactif
+- **Vue 3** : Framework JavaScript réactif avec Composition API
 - **Vue Router** : Navigation SPA
-- **Pinia** : Gestion d’état moderne pour Vue
+- **Pinia** : Gestion d'état moderne pour Vue
 - **Axios** : Client HTTP pour les appels API
 - **Vite** : Build tool rapide et moderne
 - **Tailwind CSS** : Framework CSS utility-first pour le design minimaliste
-- **Vue-markdown** : Rendu des articles Markdown
-- **VueUse** : Collection d’utilitaires Vue
+- **VueUse** : Collection d'utilitaires Vue
 
 ### Backend - Django
 
-- **Django 4.x** : Framework web Python
+- **Django 4.2** : Framework web Python
 - **Django REST Framework** : API REST complète
 - **Django CORS Headers** : Gestion des CORS pour SPA
-- **Pillow** : Traitement d’images
+- **Pillow** : Traitement d'images
 - **django-filter** : Filtrage avancé des données
 - **djangorestframework-simplejwt** : Authentification JWT
-- **django-environ** : Gestion des variables d’environnement
+- **django-environ** : Gestion des variables d'environnement
+
+### 🧠 Intelligence Artificielle
+
+- **OpenAI GPT** : Modèle de langage pour l'analyse de contenu
+- **Analyse automatique** : Vérification de la qualité et de la pertinence
+- **Modération de contenu** : Détection de contenu inapproprié
+- **Suggestions intelligentes** : Recommandations personnalisées
 
 ### Base de données
 
@@ -55,40 +69,59 @@ Un blog moderne et épuré développé avec Vue.js pour le frontend et Django po
 
 ### DevOps & Outils
 
-- **Docker & Docker Compose** : Conteneurisation
-- **Nginx** : Serveur web et reverse proxy (production)
-- **Gunicorn** : Serveur WSGI (production)
-- **GitHub Actions** : CI/CD
+- **Docker & Docker Compose** : Conteneurisation complète
+- **Nginx** : Serveur web et reverse proxy (optionnel)
+- **GitHub Actions** : CI/CD (à configurer)
 
 ## 📋 Prérequis
 
 - **Node.js** 18+ et npm
 - **Python** 3.9+
-- **MySQL** 8.0+
-- **Docker** (optionnel mais recommandé)
+- **MySQL** 8.0+ (ou Docker)
+- **Docker** et Docker Compose (recommandé)
+- **Clé API OpenAI** pour les fonctionnalités IA
 
-## 🚀 Installation
+## 🚀 Installation Rapide
 
-### Développement Local
+### Option 1: Installation automatique (Recommandée)
+
+```bash
+# Cloner le repository
+git clone <repository-url>
+cd miniblog
+
+# Rendre le script exécutable et lancer l'installation
+chmod +x install.sh
+./install.sh
+
+# Démarrer l'application
+./start.sh
+```
+
+### Option 2: Installation manuelle
 
 #### 1. Cloner le repository
 
 ```bash
 git clone <repository-url>
-cd blog-minimaliste
+cd miniblog
 ```
 
 #### 2. Configuration Backend (Django)
 
 ```bash
 cd backend
+
+# Créer l'environnement virtuel
 python -m venv venv
 source venv/bin/activate  # Sur Windows: venv\Scripts\activate
+
+# Installer les dépendances
 pip install -r requirements.txt
 
 # Copier et configurer les variables d'environnement
-cp .env.example .env
-# Éditer .env avec vos paramètres MySQL
+cp env.example .env
+# Éditer .env avec vos paramètres
 ```
 
 #### 3. Configuration Base de données
@@ -109,6 +142,8 @@ python manage.py createsuperuser
 
 ```bash
 cd ../frontend
+
+# Installer les dépendances
 npm install
 
 # Copier et configurer les variables d'environnement
@@ -128,7 +163,7 @@ cd frontend
 npm run dev
 ```
 
-### Déploiement avec Docker
+### Option 3: Déploiement avec Docker
 
 ```bash
 # Développement
@@ -140,7 +175,7 @@ docker-compose -f docker-compose.prod.yml up --build -d
 
 ## 🔧 Configuration
 
-### Variables d’environnement Backend (.env)
+### Variables d'environnement Backend (.env)
 
 ```env
 SECRET_KEY=your-secret-key-here
@@ -153,120 +188,149 @@ DATABASE_PORT=3306
 ALLOWED_HOSTS=localhost,127.0.0.1
 CORS_ALLOWED_ORIGINS=http://localhost:3000
 MEDIA_ROOT=/path/to/media
+
+# OpenAI Configuration (Requis pour l'IA)
+OPENAI_API_KEY=your-openai-api-key-here
+OPENAI_MODEL=gpt-3.5-turbo
 ```
 
-### Variables d’environnement Frontend (.env.local)
+### Variables d'environnement Frontend (.env.local)
 
 ```env
 VITE_API_BASE_URL=http://localhost:8000/api
 VITE_MEDIA_BASE_URL=http://localhost:8000/media
 ```
 
+## 🧠 Utilisation de l'IA
+
+### Vérification automatique du contenu
+
+1. **Créer un article** : Rédigez votre contenu normalement
+2. **Vérification IA** : Cliquez sur "Vérifier avec l'IA" dans l'éditeur
+3. **Analyse automatique** : L'IA analyse votre contenu et génère un score
+4. **Feedback détaillé** : Recevez des recommandations spécifiques
+5. **Amélioration continue** : Appliquez les suggestions et revérifiez
+
+### Fonctionnalités IA disponibles
+
+- **Score de qualité** : Évaluation globale sur 10
+- **Analyse SEO** : Optimisation des mots-clés et de la structure
+- **Vérification grammaticale** : Détection des erreurs de langue
+- **Suggestions de style** : Amélioration de l'écriture
+- **Modération de contenu** : Détection de contenu inapproprié
+
 ## 📚 Structure du projet
 
 ```
-blog-minimaliste/
-├── backend/
-│   ├── blog/
-│   │   ├── models.py          # Modèles de données
-│   │   ├── serializers.py     # Sérialiseurs DRF
-│   │   ├── views.py           # Vues API
-│   │   └── urls.py            # Routes API
-│   ├── config/
-│   │   ├── settings.py        # Configuration Django
-│   │   └── urls.py            # URLs principales
-│   ├── requirements.txt       # Dépendances Python
+miniblog/
+├── backend/                 # Backend Django
+│   ├── blog/               # Application principale du blog
+│   │   ├── models.py       # Modèles de données
+│   │   ├── serializers.py  # Sérialiseurs DRF
+│   │   ├── views.py        # Vues API
+│   │   └── urls.py         # Routes API
+│   ├── ai_content_checker/ # Application IA
+│   │   ├── services.py     # Service OpenAI
+│   │   ├── views.py        # API IA
+│   │   └── urls.py         # Routes IA
+│   ├── config/             # Configuration Django
+│   ├── requirements.txt    # Dépendances Python
 │   └── manage.py
-├── frontend/
+├── frontend/               # Frontend Vue.js
 │   ├── src/
-│   │   ├── components/        # Composants Vue réutilisables
-│   │   ├── views/             # Pages principales
-│   │   ├── stores/            # Stores Pinia
-│   │   ├── services/          # Services API
-│   │   └── router/            # Configuration des routes
+│   │   ├── components/     # Composants Vue réutilisables
+│   │   ├── views/          # Pages principales
+│   │   ├── stores/         # Stores Pinia
+│   │   ├── services/       # Services API
+│   │   └── router/         # Configuration des routes
 │   ├── package.json
 │   └── vite.config.js
-├── docker-compose.yml
+├── docker-compose.yml      # Configuration Docker
+├── install.sh              # Script d'installation automatique
+├── start.sh                # Script de démarrage
+├── stop.sh                 # Script d'arrêt
 └── README.md
 ```
 
-## 🔒 Sécurité - Points d’attention
+## 🔒 Sécurité
 
 ### Backend Django
 
-- **Variables sensibles** : Utiliser django-environ, jamais de secrets en dur
-- **CORS** : Configurer strictement les domaines autorisés
-- **Authentification** : Implémenter JWT avec refresh tokens
-- **Validation** : Valider toutes les entrées utilisateur
-- **Permissions** : Système de permissions granulaire (auteur/admin)
-- **Rate Limiting** : Limiter les requêtes API pour éviter les abus
-- **Uploads** : Validation stricte des fichiers uploadés (type, taille)
-- **SQL Injection** : Utiliser l’ORM Django, éviter les requêtes SQL brutes
+- **Variables sensibles** : Utilisation de django-environ
+- **CORS** : Configuration stricte des domaines autorisés
+- **Authentification JWT** : Tokens sécurisés avec refresh
+- **Validation** : Validation stricte de toutes les entrées
+- **Permissions** : Système granulaire (auteur/admin)
+- **Rate Limiting** : Protection contre les abus
+- **Uploads sécurisés** : Validation des fichiers
 
 ### Frontend Vue.js
 
-- **XSS** : Sanitiser le contenu Markdown et HTML
-- **Gestion des tokens** : Stocker les JWT de manière sécurisée
-- **Validation côté client** : Ne jamais faire confiance uniquement au frontend
+- **XSS Protection** : Sanitisation du contenu
+- **Gestion des tokens** : Stockage sécurisé des JWT
+- **Validation côté client** : Double validation
 - **HTTPS** : Obligatoire en production
-- **CSP Headers** : Content Security Policy stricte
 
-### Base de données MySQL
+### IA et Confidentialité
 
-- **Utilisateur dédié** : Créer un utilisateur MySQL spécifique avec permissions limitées
-- **Chiffrement** : Chiffrer les connexions (SSL/TLS)
-- **Sauvegardes** : Automatiser les sauvegardes régulières
-- **Index** : Optimiser les performances avec des index appropriés
+- **Données locales** : Le contenu n'est pas stocké par OpenAI
+- **API sécurisée** : Communication chiffrée avec OpenAI
+- **Contrôle utilisateur** : Vérification IA optionnelle
 
 ## 🎯 Modèles de données
 
 ### Article
 
 ```python
-- title (CharField)
-- slug (SlugField, unique)
-- content (TextField, Markdown)
-- excerpt (TextField)
-- status (ChoiceField: draft/published)
-- created_at (DateTimeField)
-- updated_at (DateTimeField)
-- published_at (DateTimeField, nullable)
-- author (ForeignKey User)
-- category (ForeignKey Category)
-- tags (ManyToManyField Tag)
-- featured_image (ImageField)
-- meta_description (CharField, SEO)
+- title (CharField)           # Titre de l'article
+- slug (SlugField)            # URL unique
+- content (TextField)          # Contenu Markdown
+- excerpt (TextField)          # Extrait
+- status (ChoiceField)         # draft/published
+- created_at (DateTimeField)   # Date de création
+- updated_at (DateTimeField)   # Date de modification
+- published_at (DateTimeField) # Date de publication
+- author (ForeignKey User)     # Auteur
+- category (ForeignKey)        # Catégorie
+- tags (ManyToManyField)      # Tags
+- featured_image (ImageField)  # Image principale
+- meta_description (CharField) # Description SEO
+
+# Champs IA
+- ai_checked (BooleanField)   # Vérifié par l'IA
+- ai_score (FloatField)       # Score sur 10
+- ai_feedback (TextField)     # Feedback détaillé
 ```
 
-### Category & Tag
+## �� API Endpoints
 
-```python
-Category:
-- name (CharField)
-- slug (SlugField)
-- description (TextField)
-
-Tag:
-- name (CharField)
-- slug (SlugField)
-```
-
-## 🚦 API Endpoints
+### Articles
 
 ```
-GET    /api/articles/          # Liste des articles publiés
+GET    /api/articles/          # Liste des articles
 GET    /api/articles/{slug}/   # Détail d'un article
-POST   /api/articles/          # Créer un article (auth)
-PUT    /api/articles/{id}/     # Modifier un article (auth)
-DELETE /api/articles/{id}/     # Supprimer un article (auth)
+POST   /api/articles/          # Créer un article
+PUT    /api/articles/{id}/     # Modifier un article
+DELETE /api/articles/{id}/     # Supprimer un article
+POST   /api/articles/{id}/publish/  # Publier un article
+POST   /api/articles/{id}/check_with_ai/  # Vérifier avec l'IA
+```
 
-GET    /api/categories/        # Liste des catégories
-GET    /api/tags/              # Liste des tags
-GET    /api/search/            # Recherche d'articles
+### IA Content Checker
 
+```
+POST   /api/ai/check-article/      # Vérifier le contenu d'un article
+POST   /api/ai/check-appropriate/  # Vérifier l'appropriation
+POST   /api/ai/suggest-improvements/ # Suggestions d'amélioration
+```
+
+### Authentification
+
+```
 POST   /api/auth/login/        # Connexion
+POST   /api/auth/register/     # Inscription
 POST   /api/auth/refresh/      # Refresh token
-POST   /api/auth/logout/       # Déconnexion
+GET    /api/auth/profile/      # Profil utilisateur
 ```
 
 ## 🧪 Tests
@@ -285,21 +349,26 @@ npm run test:unit
 
 ### Backend
 
-- **Pagination** : Limiter le nombre d’articles par page
-- **Cache** : Redis pour le cache des vues fréquentes
-- **Database** : Index sur les champs de recherche et tri
-- **Media** : CDN pour servir les images
+- **Pagination** : Limitation du nombre d'articles par page
+- **Cache** : Redis pour le cache (à configurer)
+- **Database** : Index optimisés pour la recherche
+- **Media** : CDN pour les images (à configurer)
 
 ### Frontend
 
-- **Bundle splitting** : Code splitting par routes
-- **Images** : Lazy loading et formats optimisés
-- **Cache** : Service Worker pour le cache offline
-- **SEO** : Server-side rendering avec Nuxt.js (migration future)
+- **Code splitting** : Division du code par routes
+- **Lazy loading** : Chargement différé des composants
+- **Images optimisées** : Formats modernes et compression
+- **Service Worker** : Cache offline (à implémenter)
 
 ## 🔄 Roadmap
 
-- [ ] Système de commentaires
+- [x] Système d'authentification JWT
+- [x] Intégration IA OpenAI
+- [x] Vérification automatique du contenu
+- [x] Interface responsive moderne
+- [x] Gestion des articles et catégories
+- [ ] Système de commentaires avancé
 - [ ] Newsletter/abonnements
 - [ ] Analytics intégrées
 - [ ] PWA (Progressive Web App)
@@ -309,11 +378,17 @@ npm run test:unit
 
 ## 📄 Licence
 
-[Choisir une licence appropriée - MIT, GPL, etc.]
+MIT License - Voir le fichier LICENSE pour plus de détails.
 
 ## 👥 Contribution
 
-Les contributions sont les bienvenues ! Voir <CONTRIBUTING.md> pour les guidelines.
+Les contributions sont les bienvenues ! 
+
+1. Fork le projet
+2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
+3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrir une Pull Request
 
 ## 📞 Support
 
@@ -322,3 +397,14 @@ Pour toute question ou problème :
 - Ouvrir une [issue](lien-vers-issues)
 - Documentation : [lien-vers-docs]
 - Email : [contact@example.com]
+
+## 🎉 Remerciements
+
+- **OpenAI** pour l'API GPT qui alimente nos fonctionnalités IA
+- **Vue.js** et **Django** pour leurs frameworks exceptionnels
+- **Tailwind CSS** pour le design system moderne
+- **La communauté open source** pour tous les outils et bibliothèques
+
+---
+
+**MiniBlog** - Rédigez mieux avec l'intelligence artificielle 🚀
