@@ -1,0 +1,37 @@
+{
+  "name": "miniblog-frontend",
+  "version": "1.0.0",
+  "description": "Frontend Vue.js pour le miniBlog avec intégration IA",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4",
+    "pinia": "^2.1.6",
+    "axios": "^1.5.0",
+    "@vueuse/core": "^10.3.0",
+    "marked": "^7.0.2",
+    "highlight.js": "^11.8.0",
+    "lucide-vue-next": "^0.263.1",
+    "vue-toastification": "^2.0.0-rc.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.3.4",
+    "vite": "^4.4.9",
+    "tailwindcss": "^3.3.3",
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.29",
+    "@tailwindcss/typography": "^0.5.10",
+    "eslint": "^8.47.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "prettier": "^3.0.2",
+    "vitest": "^0.34.3",
+    "@vue/test-utils": "^2.4.1"
+  }
+}
